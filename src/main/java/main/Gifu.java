@@ -2,11 +2,12 @@ package main.java.main;
 
 import java.util.ArrayList;
 
+
 public class Gifu {
     private String university;
-    ArrayList<Course> courses = new ArrayList<>();
-    ArrayList<Student> students = new ArrayList<>();
-    ArrayList<Enrollment> enrollments = new ArrayList<>();
+    private ArrayList<Course> courses = new ArrayList<>();
+    private ArrayList<Student> students = new ArrayList<>();
+    // private ArrayList<Enrollment> enrollments = new ArrayList<>();
 
     public Gifu(String university) {
         this.university = university;
@@ -19,19 +20,23 @@ public class Gifu {
     public int getCourse() {
 
     }
-
-    public ArrayList getCourses() {
-
+*/
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 
     public void listCourses() {
-
+        int i = 0;
+        for (Course c : getCourses()) {
+            System.out.println(i + ") " + c.getInformation());
+            i++;
+        }
     }
 
-    public void addStudent() {
-
+    public void addStudent(String studentName, String studentId) {
+        students.add(new Student(studentName, studentId));
     }
-
+/*
     public int getStudent() {
 
     }

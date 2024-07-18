@@ -1,6 +1,10 @@
 package main;
 
 import java.util.Scanner;
+import main.java.main.Gifu;
+import main.java.main.Course;
+import main.java.main.Enrollment;
+import main.java.main.Student;
 
 public class App 
 {
@@ -34,6 +38,19 @@ public class App
                         int maxNumberOfStudents = Integer.parseInt(stringMaxNumberOfStudents);
                         gifu.addCourse(courseName, courseId, maxNumberOfStudents);
 
+                        break;
+                    
+                    case 2:
+                        System.out.println("Anna opiskelijan nimi:");
+                        String studentName = sc.nextLine();
+                        System.out.println("Anna opiskelijan opiskelijanumero:");
+                        String studentId = sc.nextLine();
+                        gifu.addStudent(studentName, studentId);
+        
+                        break;
+
+                    case 3:
+                        gifu.listCourses();
                         break;
 
                     case 0:
