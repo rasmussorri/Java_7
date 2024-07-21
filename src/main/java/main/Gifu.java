@@ -80,8 +80,12 @@ public class Gifu {
 
     public void listStudentGrades(Student student) {
         ArrayList<Enrollment> studentEnrollments = getEnrollments(student);
+        Boolean printStudent = true;
         for (Enrollment e : studentEnrollments) {
-            System.out.println("Opiskelijan " + e.getStudent().getInformation() + " arvosanat: ");
+            if(printStudent) {
+                System.out.println("Opiskelijan " + e.getStudent().getInformation() + " arvosanat: ");
+                printStudent = false;
+            }
             System.out.println(e.getCourse().getInformation() + ", arvosana: " + e.getGrade());
         }
     }
