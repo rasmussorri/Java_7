@@ -7,7 +7,7 @@ public class Gifu {
     private String university;
     private ArrayList<Course> courses = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
-    // private ArrayList<Enrollment> enrollments = new ArrayList<>();
+    private ArrayList<Enrollment> enrollments = new ArrayList<>();
 
     public Gifu(String university) {
         this.university = university;
@@ -16,11 +16,11 @@ public class Gifu {
     public void addCourse(String courseName, String courseId, int maxNumberOfStudents) {
         courses.add(new Course(courseName, courseId, maxNumberOfStudents));
     }
-    /*
-    public int getCourse() {
 
+    public Course getCourse(int course) {
+        return courses.get(course);
     }
-*/
+
     public ArrayList<Course> getCourses() {
         return courses;
     }
@@ -36,24 +36,58 @@ public class Gifu {
     public void addStudent(String studentName, String studentId) {
         students.add(new Student(studentName, studentId));
     }
-/*
-    public int getStudent() {
 
+    public Student getStudent(int student) {
+        return students.get(student);
     }
 
     public void listStudents() {
-
+        int i = 0;
+        for (Student s : students) {
+            System.out.println(i + ") " + s.getInformation());
+            i++;
+        }
+        
     }
 
-    public void enrollStudent() {
-
+    public void enrollStudent(int studentIndex, int courseIndex) {
+        enrollments.add(new Enrollment(students.get(studentIndex), courses.get(courseIndex)));
     }
 
-    public ArrayList<Course> getEnrollments(course : Course) {
-
+    public ArrayList<Enrollment> getEnrollments() {
+        return enrollments;
     }
 
-    public ArrayList<Student> getEnrollments(student : Student) {
+    public ArrayList<Enrollment> getEnrollments(Course course) {
+        ArrayList<Enrollment> courseEnrollments = new ArrayList<>();
+        for (Enrollment e : enrollments) {
+            if (e.getCourse().equals(course)) {
+                courseEnrollments.add(e);
+            }
+        }
+        return courseEnrollments;
+    }
 
-    }*/
+    public ArrayList<Enrollment> getEnrollments(Student student) {
+        ArrayList<Enrollment> studentEnrollments = new ArrayList<>();
+        for (Enrollment e : enrollments) {
+            if (e.getStudent().equals(student)) {
+                studentEnrollments.add(e);
+            }
+        }
+        return studentEnrollments;
+    }
+
+    public void listStudentGrades(Student student) {
+        ArrayList<Enrollment> studentEnrollments = getEnrollments(student);
+        for (Enrollment e : studentEnrollments) {
+            System.out.println("Course: " + e.getCourse().getInformation() + ", Grade: " + e.getGrade());
+        }
+    }
+
+    public void listAllGrades() {
+        for (Enrollment e : enrollments) {
+            System.out.println("Student: " + e.getStudent().getInformation() + ", Course: " + e.getCourse().getInformation() + ", Grade: " + e.getGrade());
+        }
+    }
 }

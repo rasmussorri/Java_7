@@ -5,6 +5,7 @@ import main.java.main.Gifu;
 import main.java.main.Course;
 import main.java.main.Enrollment;
 import main.java.main.Student;
+import java.util.ArrayList;
 
 public class App 
 {
@@ -53,6 +54,57 @@ public class App
                         gifu.listCourses();
                         break;
 
+                    case 4:
+                        gifu.listStudents();
+                        break;
+
+                    case 5:
+                        gifu.listCourses();
+                        System.out.println("Mille kurssille haluat lisätä opiskelijan? Syötä kurssin numero:");
+                        String stringCourseIndex = sc.nextLine();
+                        int courseIndex = Integer.parseInt(stringCourseIndex);
+                        
+                        gifu.listStudents();
+                        System.out.println("Minkä opiskelijan haluat lisätä kurssille? Syötä opiskelijan numero:");
+                        String stringStudentIndex = sc.nextLine();
+                        int studentIndex = Integer.parseInt(stringStudentIndex);
+                        gifu.enrollStudent(studentIndex, courseIndex);
+                        break;
+
+                    case 6:
+                        gifu.listCourses();
+                        System.out.println("Minkä kurssin haluat arvostella? Syötä kurssin numero:");
+                        int course = Integer.parseInt(sc.nextLine());
+                        ArrayList<Enrollment> enrollments = gifu.getEnrollments(gifu.getCourse(course));
+                        for (Enrollment enrollment : enrollments) {
+                            System.out.println("Opiskelija: " + enrollment.getStudent().getInformation() + ", Anna arvosana:");
+                            int grade = Integer.parseInt(sc.nextLine());
+                            enrollment.gradeCourse(grade);;
+                        }
+                        break;
+
+                    case 7:
+                        gifu.listCourses();
+                        System.out.println("Minkä kurssin opiskelijat haluat listata? Syötä kurssin numero:");
+                        int listCourseIndex = Integer.parseInt(sc.nextLine());
+                        ArrayList<Enrollment> courseEnrollments = gifu.getEnrollments(gifu.getCourse(listCourseIndex));
+                        for (Enrollment e : courseEnrollments) {
+                            System.out.println(e.getStudent().getInformation());
+                        }
+                        break;
+
+                    case 8:
+                        gifu.listStudents();
+                        System.out.println("Minkä opiskelijan arvosanat haluat listata? Syötä opiskelijan numero:");
+                        int studentGradesIndex = Integer.parseInt(sc.nextLine());
+                        gifu.listStudentGrades(gifu.getStudent(studentGradesIndex));
+
+                        break;    
+                    
+                    case 9:
+                        gifu.listAllGrades();
+                        break;
+                        
                     case 0:
                         System.out.println("Kiitos ohjelman käytöstä");
                         exit = true;
