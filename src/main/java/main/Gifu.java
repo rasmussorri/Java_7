@@ -83,7 +83,7 @@ public class Gifu {
         Boolean printStudent = true;
         for (Enrollment e : studentEnrollments) {
             if(printStudent) {
-                System.out.println("Opiskelijan " + e.getStudent().getInformation() + " arvosanat: ");
+                System.out.println("Opiskelijan " + e.getStudent().getInformation() + " arvosanat:");
                 printStudent = false;
             }
             System.out.println(e.getCourse().getInformation() + ", arvosana: " + e.getGrade());
@@ -92,7 +92,7 @@ public class Gifu {
 
     public void listAllGrades() {
         for (Enrollment e : enrollments) {
-            System.out.println(e.getCourse().getInformation() + ", arvosana: " + e.getGrade());
+            System.out.println(e.getCourse().getInformation() + " " + e.getStudent().getInformation() + ", arvosana: " + e.getGrade());
         }
     }
 }
