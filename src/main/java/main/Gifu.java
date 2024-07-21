@@ -102,7 +102,7 @@ public class Gifu {
             if(!(e.getCourse().equals(course))) {
                 System.out.println(e.getCourse().getInformation());
             }
-            System.out.println(e.getCourse().getInformation() + " " + e.getStudent().getInformation() + ", arvosana: " + e.getGrade());
+            System.out.println(e.getStudent().getInformation() + ", arvosana: " + e.getGrade());
         }
     }
 }
