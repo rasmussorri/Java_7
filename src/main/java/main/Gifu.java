@@ -91,14 +91,15 @@ public class Gifu {
     }
 
     public void listAllGrades() {
-        Course course;
-        Boolean printCourse = true;
+        Course course = null;
+        // Boolean printCourse = true;
         for (Enrollment e : enrollments) {
+            /*
             if(printCourse) {
                 System.out.println(e.getCourse().getInformation());
                 printCourse = false;
-                course = e.getCourse();
             }
+            */
             if(!(e.getCourse().equals(course))) {
                 System.out.println(e.getCourse().getInformation());
             }
