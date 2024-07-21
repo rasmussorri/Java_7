@@ -91,7 +91,17 @@ public class Gifu {
     }
 
     public void listAllGrades() {
+        Course course;
+        Boolean printCourse = true;
         for (Enrollment e : enrollments) {
+            if(printCourse) {
+                System.out.println(e.getCourse().getInformation());
+                printCourse = false;
+            }
+            course = e.e.getCourse();
+            if(!(e.getCourse().equals(course))) {
+                System.out.println(e.getCourse().getInformation());
+            }
             System.out.println(e.getCourse().getInformation() + " " + e.getStudent().getInformation() + ", arvosana: " + e.getGrade());
         }
     }
