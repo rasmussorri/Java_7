@@ -99,7 +99,7 @@ public class Gifu {
                 printCourse = false;
             }
             course = e.getCourse();
-            if(!(e.getCourse().equals(course))) {
+            if(e.getCourse().equals(course)) {
                 System.out.println(e.getCourse().getInformation());
             }
             System.out.println(e.getStudent().getInformation() + ", arvosana: " + e.getGrade());
