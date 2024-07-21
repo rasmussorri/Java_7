@@ -77,7 +77,7 @@ public class App
                         int course = Integer.parseInt(sc.nextLine());
                         ArrayList<Enrollment> enrollments = gifu.getEnrollments(gifu.getCourse(course));
                         for (Enrollment enrollment : enrollments) {
-                            System.out.println("Opiskelija: " + enrollment.getStudent().getInformation() + ", Anna arvosana:");
+                            System.out.println("Anna arvosana opiskelijalle " + enrollment.getStudent().getInformation());
                             int grade = Integer.parseInt(sc.nextLine());
                             enrollment.gradeCourse(grade);;
                         }
@@ -104,9 +104,9 @@ public class App
                     case 9:
                         gifu.listAllGrades();
                         break;
-                        
+
                     case 0:
-                        System.out.println("Kiitos ohjelman käytöstä");
+                        System.out.println("Kiitos ohjelman käytöstä.");
                         exit = true;
                         break;
 

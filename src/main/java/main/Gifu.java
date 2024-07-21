@@ -81,13 +81,14 @@ public class Gifu {
     public void listStudentGrades(Student student) {
         ArrayList<Enrollment> studentEnrollments = getEnrollments(student);
         for (Enrollment e : studentEnrollments) {
-            System.out.println("Course: " + e.getCourse().getInformation() + ", Grade: " + e.getGrade());
+            System.out.println("Kurssi: " + e.getCourse().getInformation() + ", arvosana: " + e.getGrade());
         }
     }
 
     public void listAllGrades() {
         for (Enrollment e : enrollments) {
-            System.out.println("Student: " + e.getStudent().getInformation() + ", Course: " + e.getCourse().getInformation() + ", Grade: " + e.getGrade());
+            System.out.println("Opiskelijan " + e.getStudent().getInformation() + " arvosanat: ");
+            System.out.println(e.getCourse().getInformation() + ", arvosana: " + e.getGrade());
         }
     }
 }
