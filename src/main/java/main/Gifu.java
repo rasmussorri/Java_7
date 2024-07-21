@@ -98,7 +98,7 @@ public class Gifu {
                 System.out.println(e.getCourse().getInformation());
                 printCourse = false;
             }
-            course = e.e.getCourse();
+            course = e.getCourse();
             if(!(e.getCourse().equals(course))) {
                 System.out.println(e.getCourse().getInformation());
             }
